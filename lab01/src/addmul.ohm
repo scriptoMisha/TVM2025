@@ -1,3 +1,17 @@
 AddMul {
- // Write the rules here
+  Exp = AddExp
+  
+  AddExp = AddExp "+" MulExp  -- add
+         | AddExp "-" MulExp  -- sub
+         | MulExp            -- base
+
+  
+  MulExp = MulExp "*" Primary -- mul
+         | MulExp "/" Primary -- div
+         | Primary           -- base
+    
+  Primary = "(" Exp ")"      -- paren
+          | number           -- num
+
+  number = digit+
 }
