@@ -5,12 +5,10 @@ export const addMulSemantics: AddMulSemantics = grammar.createSemantics() as Add
 
 
 const addMulCalc = {
-    // Main expression
     Exp(addExp) { 
         return addExp.calculate(); 
     },
     
-    // Addition and subtraction
     AddExp_add(left, _, right) { 
         return left.calculate() + right.calculate(); 
     },
@@ -21,7 +19,6 @@ const addMulCalc = {
         return mulExp.calculate(); 
     },
     
-    // Multiplication and division
     MulExp_mul(left, _, right) { 
         return left.calculate() * right.calculate(); 
     },
@@ -32,17 +29,15 @@ const addMulCalc = {
         return primary.calculate(); 
     },
     
-    // Primary expressions (numbers and parentheses)
     Primary_paren(_, exp, __) { 
-        return exp.calculate(); // Скобки просто возвращают результат внутреннего выражения
+        return exp.calculate();
     },
     Primary_num(number) { 
         return number.calculate(); 
     },
     
-    // Numbers
     number(_) { 
-        return parseInt(this.sourceString); // this.sourceString содержит исходный текст числа
+        return parseInt(this.sourceString);
     }
 } satisfies AddMulActionDict<number>
 

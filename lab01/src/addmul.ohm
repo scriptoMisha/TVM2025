@@ -1,21 +1,17 @@
 AddMul {
-  // Main expression rule
   Exp = AddExp
   
-  // Addition/Subtraction (lowest priority)
   AddExp = AddExp "+" MulExp  -- add
          | AddExp "-" MulExp  -- sub
          | MulExp            -- base
 
-  // Multiplication/Division (higher priority)
+  
   MulExp = MulExp "*" Primary -- mul
          | MulExp "/" Primary -- div
          | Primary           -- base
-  
-  // Primary expressions (highest priority)
+    
   Primary = "(" Exp ")"      -- paren
           | number           -- num
 
-  // Numbers
   number = digit+
 }
