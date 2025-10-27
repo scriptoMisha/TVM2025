@@ -3,6 +3,7 @@ import { Expr, parseExpr } from "../../lab04";
 
 import { simplify, cost } from "../src";
 import { basicIdentities, commutativeIdentities, toughIdentities } from './identities';
+import { basicIdentities, commutativeIdentities, toughIdentities } from './identities';
 
 const estimate = (source: string) => cost(parseExpr(source));
 
