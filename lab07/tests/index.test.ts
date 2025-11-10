@@ -29,10 +29,10 @@ describe('Testing cost function', ()=>
 
 });
 
-const parseSimplifyAndCost = (source: string, identities: ()=>[Expr, Expr][]) {
+const parseSimplifyAndCost = (source: string, identities: ()=>[Expr, Expr][]) => {
 
     const simplified = simplify(parseExpr(source), identities());
-    console.log(`${printExpr(source)} => ${printExpr(simplified)}`);
+    console.log(`${source} => ${printExpr(simplified)}`);
     return cost(simplified);
 } ;
 
