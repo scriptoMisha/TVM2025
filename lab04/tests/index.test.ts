@@ -15,6 +15,8 @@ describe('testing addition and multiplication printing', () => {
     test("Multiplication is performed before addition (1)", 4, parseAndPrint, "6 * 6 + 6", "(6*6)+6");
     test("Multiplication is performed before addition (2)", 3, parseAndPrint, "7 + 5 * 7", "7+5*7");
     test("Multiplication is performed before addition (3)", 4, parseAndPrint, "6 * (6 + 6)", "6*(6+6)");
+    test("Лишние скобки1", 4, parseAndPrint,"1 + 2 + 3", "((1+2)+3)");
+    test("Лишние скобки2", 4, parseAndPrint,"1 - (2 + 3)", "(1-(2+3))");
     test("Multiplication is performed before addition (4)", 4, parseAndPrint, "(7 + 5) * 7", "(7+5)*7");
     test("Complex expressions are supported", 3, parseAndPrint, "7 + 2 + 7 + 3 * 6 * 3", "7+2+7+3*6*3");  
     test("Complex expressions with paren are supported", 4, parseAndPrint, "7 + 2 * 7 + 3 * 6 + 3", "7+2*7+3*6+3");
